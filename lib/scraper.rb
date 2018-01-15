@@ -7,7 +7,7 @@ class Scraper
   def words(url)
     hash = {}
     doc = Nokogiri::HTML(open(url))
-    page = doc.css(".content-wrapper")
+    page = doc.css(".entry")
     #binding.pry
     page.each do |s|
       hash[s.css(".word").text] = s.css(".definition").text
@@ -17,4 +17,4 @@ class Scraper
   end
 end
 
-Scraper.new.words(https://www.vocabulary.com/lists/1748998)
+Scraper.new.words("https://www.vocabulary.com/lists/1748998")

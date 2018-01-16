@@ -8,7 +8,7 @@ class Question
  
   def select_word(hash)
    array = hash.keys
-   number = rand(1..array.length+1)
+   number = rand(0..array.length-1)
    while @@used_words.include? (array[number])
      self.select_word(hash)
    end
@@ -24,10 +24,11 @@ class Question
    array = hash.values.delete_if {|p| p == @answer}
    #binding.pry
    3.times do
-     number = rand(1..array.length+1)
+     number = rand(0..array.length-1)
      self.options << array[number]
      array.delete(array[number])
    end
+   #binding.pry
   self.options
  end
  

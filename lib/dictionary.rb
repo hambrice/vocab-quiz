@@ -10,8 +10,8 @@ class Dictionary
   
   def define(word)
     @words[word]
-    binding.pry
   end
+  
 end
 
-dictionary = Dictionary.new("https://www.vocabulary.com/lists/1748998").define("luminous")
+#dictionary = Dictionary.new("https://www.vocabulary.com/lists/1748998").define("luminous")

@@ -2,8 +2,7 @@ require "pry"
 require_relative "../lib/scraper.rb"
 
 class Dictionary
- # attr_reader :words
-  
+  attr_reader :count
   def initialize (url)
     @@words = Scraper.new.scrape_dictionary(url)
   end
@@ -15,6 +14,10 @@ class Dictionary
   
   def words
     @@words
+  end
+  
+  def self.count
+    @count = @@words.keys.length
   end
 end
 

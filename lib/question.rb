@@ -6,6 +6,11 @@ class Question
  attr_accessor :options, :answer_index
  attr_reader :word, :answer
  
+ 
+  def self.used_words
+    @@used_words
+  end
+  
   def select_word(hash)
    array = hash.keys
    number = rand(0..array.length-1)
@@ -38,7 +43,7 @@ class Question
    self.answer_index = rand (0..3)
    self.options.insert(self.answer_index, @answer)
    self.options.delete("placeholder")
-   #binding.pry
+   binding.pry
    puts "What is the definition of '#{@word}'?"
    self.options.each.with_index(1) do |option,index|
      puts "#{index}. #{option.capitalize}"
@@ -50,4 +55,4 @@ class Question
   end
 end
 
-#Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)
+Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

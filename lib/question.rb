@@ -39,12 +39,15 @@ class Question
    self.options.insert(self.answer_index, @answer)
    self.options.delete("placeholder")
    #binding.pry
-   puts "What is the definition of #{@word}?"
-   self.options.each do |option|
-     puts option
+   puts "What is the definition of '#{@word}'?"
+   self.options.each.with_index(1) do |option,index|
+     puts "#{index}. #{option.capitalize}"
    end
-   
- end
+  end
+  
+  def correct?(input)
+    input == self.answer_index
+  end
 end
 
-Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)
+#Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

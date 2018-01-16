@@ -1,3 +1,6 @@
+require "pry"
+require_relative "../lib/question.rb"
+
 class Game
 attr_accessor :correct_count
 
@@ -13,11 +16,16 @@ attr_accessor :correct_count
     while !over?
       question = Question.new
       question.build_question(hash)
-      input = gets.strip
-      self.correct_count += 1 if question.correct?
+      input = gets.strip.to_i
+      if question.correct?(input)
+        self.correct_count += 1
+        puts "Correct!"
+      else 
+        puts "Sorry, that's incorrect."
+      end
     end
   end
       
 end
 
-Game.new.play()
+Game.new.play(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

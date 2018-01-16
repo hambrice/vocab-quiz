@@ -11,10 +11,14 @@ class Question
     @@used_words
   end
   
+  def correct?(input)
+    input == self.answer_index + 1
+  end
+  
   def select_word(hash)
    array = hash.keys
    number = rand(0..array.length-1)
-   while @@used_words.include? (array[number])
+   if @@used_words.include? (array[number])
      self.select_word(hash)
    end
    @@used_words << array[number]
@@ -43,16 +47,15 @@ class Question
    self.answer_index = rand (0..3)
    self.options.insert(self.answer_index, @answer)
    self.options.delete("placeholder")
-   binding.pry
+   #binding.pry
    puts "What is the definition of '#{@word}'?"
    self.options.each.with_index(1) do |option,index|
      puts "#{index}. #{option.capitalize}"
    end
+   #binding.pry
   end
   
-  def correct?(input)
-    input == self.answer_index
-  end
+  
 end
 
-Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)
+#Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

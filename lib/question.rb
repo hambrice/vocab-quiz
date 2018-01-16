@@ -15,22 +15,30 @@ class Question
    @answer = Dictionary.define(array[number])
    @word = array[number]
  end
+
+ def options 
+   @options = []
+ end
  
  def select_options(hash)
-   new_array = []
+   
    self.select_word(hash)
    array = hash.values.delete_if {|p| p == @answer}
    #binding.pry
    3.times do
      number = rand(1..array.length+1)
-     new_array << array[number]
+     self.options << array[number]
      array[number].delete(array[number])
    end
-     binding.pry
-     
+  self.options
  end
  
  def build_question(hash)
+   select_options(hash)
+   number = rand (0..self.options.length+1)
+   self.options
+   puts "What is the definition of #{@word}?"
+   
    
    
  end

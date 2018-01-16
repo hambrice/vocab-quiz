@@ -8,11 +8,9 @@ class Scraper
     hash = {}
     doc = Nokogiri::HTML(open(url))
     page = doc.css(".entry")
-    #binding.pry
     page.each do |s|
       hash[s.css(".word").text] = s.css(".definition").text
     end
-    binding.pry
     hash
   end
 end

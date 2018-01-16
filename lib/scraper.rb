@@ -4,7 +4,7 @@ require "pry"
 
 class Scraper
   
-  def words(url)
+  def scrape_dictionary(url)
     hash = {}
     doc = Nokogiri::HTML(open(url))
     page = doc.css(".entry")
@@ -17,4 +17,4 @@ class Scraper
   end
 end
 
-Scraper.new.words("https://www.vocabulary.com/lists/1748998")
+#Scraper.new.words("https://www.vocabulary.com/lists/1748998")

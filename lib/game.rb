@@ -18,7 +18,6 @@ attr_accessor :correct_count
       question.build_question(hash)
       input = gets.strip
       if input == "exit"
-        puts "goodbye!"
         return
         elsif question.correct?(input.to_i)
         self.correct_count += 1

@@ -16,8 +16,10 @@ attr_accessor :correct_count
     while !over?
       question = Question.new
       question.build_question(hash)
-      input = gets.strip.to_i
-      if question.correct?(input)
+      input = gets.strip
+      if input == "exit"
+        puts "goodbye!"
+        elsif question.correct?(input.to_i)
         self.correct_count += 1
         puts "Correct!"
       else 

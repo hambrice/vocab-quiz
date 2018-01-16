@@ -17,6 +17,8 @@ class Question
   
   def select_word(hash)
    array = hash.keys
+   @@used_words.each {|w| array.delete_if {|s| s == w}}
+   #binding.pry
    number = rand(0..array.length-1)
    if @@used_words.include? (array[number])
      self.select_word(hash)

@@ -3,7 +3,7 @@ require_relative "../lib/dictionary.rb"
 
 class Question
  @@used_words = []
- attr_accessor :options
+ attr_accessor :options, :answer_index
  attr_reader :word, :answer
  
   def select_word(hash)
@@ -35,13 +35,14 @@ class Question
  def build_question(hash)
    select_options(hash)
    self.options << "placeholder"
-   number = rand (0..4)
-   self.options.insert(number, @answer)
+   self.answer_index = rand (0..3)
+   self.options.insert(self.answer_index, @answer)
    self.options.delete("placeholder")
-   binding.pry
+   #binding.pry
    puts "What is the definition of #{@word}?"
-   
-   
+   self.options.each do |option|
+     puts option
+   end
    
  end
 end

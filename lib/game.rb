@@ -19,6 +19,7 @@ attr_accessor :correct_count
       input = gets.strip
       if input == "exit"
         puts "goodbye!"
+        return
         elsif question.correct?(input.to_i)
         self.correct_count += 1
         puts "Correct!"
@@ -30,4 +31,4 @@ attr_accessor :correct_count
       
 end
 
-Game.new.play(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)
+#Game.new.play(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

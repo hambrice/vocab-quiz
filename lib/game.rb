@@ -61,22 +61,6 @@ attr_accessor :correct_count, :dictionary, :question_count
     puts "Thanks for playing!\n\n"
     puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}.\n\n"
     sleep(0.5)
-    if score == 0
-      puts "Errr.. Atleast you're pretty?"
-    elsif score > 0 && score <= 20
-      puts "You know, maybe vocabulary isn't your strong suit."
-    elsif score > 20 && score <= 40
-      puts "You know what they say, don't judge a fish by it's ability to climb a tree. Or memorize vocabulary."
-    elsif score > 40 && score <= 60
-      puts "You did about as good as if you had just picked the answers randomly. So congrats?"
-    elsif score > 60 && score <= 80
-      puts "Hey, looks like someone has read a few books!"
-    elsif score > 80 && score < 100
-      puts "You're a genius!"
-    elsif score == 100
-      puts "Woah! You're a vocabulary WIZARD!"
-    else
-      puts "Uhm, what just happened."
     end
   end
   

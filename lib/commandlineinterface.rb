@@ -29,7 +29,7 @@ class CLI
       input = gets.strip
     end
     dictionary = Scraper.new.build_dictionary(input)
-    puts "You've chosen '#{dictionary.title}'(#{dictionary.count} words). Is that correct?"
+    puts "You've chosen '#{dictionary.title}'(#{dictionary.count} words). Is that correct?(yes/no)"
     input = gets.strip
     unless input.downcase == "yes" || input.downcase == "y"
       puts "Okay, let's try again.\n\n"
@@ -61,7 +61,7 @@ class CLI
     puts "Great! You will be given a word and must select its definition from the given options.\n\n"
     puts "You can select your answer by using numbers or letters (a=1, b=2, etc).\n\n"
     sleep(1)
-    puts "You can type exit at any time to quit. Type anything to begin!\n\n"
+    puts "You can type exit at any time to quit once the game has begun. Press any key to begin!\n\n"
     gets
     Game.new(dictionary,amount).play
   end 

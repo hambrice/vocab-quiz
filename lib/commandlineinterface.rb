@@ -63,7 +63,7 @@ class CLI
     sleep(1)
     puts "You can type exit at any time to quit. Type anything to begin!\n\n\n"
     gets
-    game = Game.new(dictionary)
+    game = Game.new(dictionary,amount)
     game.play
     #game.play(Dictionary.new("https://www.vocabulary.com/lists/191545").words)
     #puts "Thanks for playing! You got #{game.correct_count} correct!"

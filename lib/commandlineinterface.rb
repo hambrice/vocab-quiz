@@ -39,12 +39,25 @@ class CLI
     dictionary
   end
   
+  def question_count
+    puts "Now, of the #{dictionary.count} words, how many would you like to try?"
+    amount = gets.strip.to_i
+    while amount < 1 || amount > dictionary.count
+      "Sorry, please choose a number between 1 and #{dictionary.count}."
+      amount = gets.strip.to_i
+    end
+    amount
+  end
+    
+    
   def run
     puts "Welcome to your Vocabulary Quiz! This quiz is built on lists created by vocabulary.com.\n\n"
     sleep(1)
     puts "To get started, please choose a vocabulary category to begin!\n\n"
     sleep(1)
     dictionary = self.choose_dictionary
+    sleep(0.25)
+    amount = self.question_count
     sleep(0.25)
     puts "Great! You will be given a word and must select its definition from the given options by entering the number that corresponds to the correct answer.\n\n"
     sleep(1)

@@ -21,7 +21,7 @@ attr_accessor :correct_count, :dictionary
   end
   
   def exit
-    puts "Thanks for playing! You got #{self.correct_count} correct!"
+    self.result
   end
   
    def build_question(question)
@@ -35,7 +35,7 @@ attr_accessor :correct_count, :dictionary
   end
   
   def puts_question(question)
-    puts "What is the definition of '#{question.word}'?"
+    puts "What is the definition of '#{question.word}'?\n\n"
     question.options.each.with_index(1) do |option,index|
       puts "#{index}. #{option.capitalize}"
     end
@@ -46,9 +46,9 @@ attr_accessor :correct_count, :dictionary
   end
   
   def result
-    puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}."
+    puts "Thanks for playing!\n\n"
+    puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}.\n\n"
     sleep(0.5)
-    puts""
     if score == 0
       puts "Errr.. Atleast you're pretty?"
     elsif score > 0 && score <= 20
@@ -74,9 +74,8 @@ attr_accessor :correct_count, :dictionary
      self.puts_question(question)
      input = gets.strip
      while !self.valid_input?(input)
-      puts "Sorry! I didn't recognize your answer."
-      puts "Please pick an option that corresponds to one of the given answers."
-      puts ""
+      puts "Sorry! I didn't recognize your answer.\n\n"
+      puts "Please pick an option that corresponds to one of the given answers.\n\n\n"
       sleep(1)
       self.puts_question(question)
       input = gets.strip
@@ -86,13 +85,13 @@ attr_accessor :correct_count, :dictionary
         return
       elsif question.correct?(input.to_i)
         self.correct_count += 1
-        puts "Correct!"
+        puts "Correct!\n\n"
       else 
-        puts "Sorry, that's incorrect."
+        puts "Sorry, that's incorrect.\n\n"
       end
     end
+    puts "Whew, that's it. Youre done!\n\n"
     puts self.result
-    puts
   end
       
 end

@@ -11,6 +11,7 @@ class Scraper
    if input.include?("vocabulary.com/lists/")
      self.url = "https://www.vocabulary.com/lists/#{input.split("lists/")[1]}"
      #binding.pry
+   else
     case input
     when "1"
       self.url = "https://www.vocabulary.com/lists/191545"

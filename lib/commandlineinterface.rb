@@ -59,9 +59,10 @@ class CLI
     sleep(0.25)
     amount = self.question_count(dictionary)
     sleep(0.25)
-    puts "Great! You will be given a word and must select its definition from the given options by entering the number that corresponds to the correct answer.\n\n"
+    puts "Great! You will be given a word and must select its definition from the given options.\n\n"
+    puts "You can select your answer by using numbers or letters (a=1, b=2, etc).\n\n"
     sleep(1)
-    puts "You can type exit at any time to quit. Type anything to begin!\n\n\n"
+    puts "You can type exit at any time to quit. Type anything to begin!\n\n"
     gets
     game = Game.new(dictionary,amount)
     game.play

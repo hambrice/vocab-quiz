@@ -36,7 +36,7 @@ attr_accessor :correct_count, :dictionary, :question_count
   
   def puts_question(question)
     array = ["a","b","c","d"]
-    puts "What is the definition of '#{question.word}'?\n\n"
+    puts "#{@@questions.length}. What is the definition of '#{question.word}'?\n\n"
     question.options.each.with_index(0) do |option,index|
       puts "#{array[index]}. #{option.capitalize}"
     end
@@ -92,6 +92,7 @@ attr_accessor :correct_count, :dictionary, :question_count
         puts "Sorry, that's incorrect.\n\n"
       end
     end
+    sleep(0.5)
     puts "Whew, that's it. Youre done!\n\n"
     puts self.result
   end

@@ -3,11 +3,18 @@ require_relative "../lib/question.rb"
 
 class Game
 attr_accessor :correct_count, :dictionary
+@@questions = []
 
   def initialize(input)
     @dictionary = Scraper.new.build_dictionary(input)
     @correct_count = 0
     
+    
+  end
+  
+  def score
+    self.correct_count.to_f / @@questions.length*100
+    binding.pry
   end
   
   def over?
@@ -24,6 +31,7 @@ attr_accessor :correct_count, :dictionary
     question.answer_index = rand (0..3)
     question.options.insert(question.answer_index, question.answer)
     question.options.delete("placeholder")
+    @@questions << question
     question
   end
   
@@ -36,6 +44,14 @@ attr_accessor :correct_count, :dictionary
   
   def valid_input?(input)
     input.to_i > 0 && input.to_i < 5 || input == "exit"
+  end
+  
+  def result
+    puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}."
+    if score == 0
+      puts "Errr.. Atleast you're pretty?"
+    if score > 0 || score < 20
+      puts 
   end
   
   def play
@@ -61,7 +77,8 @@ attr_accessor :correct_count, :dictionary
         puts "Sorry, that's incorrect."
       end
     end
-    puts "Good work! You got #{self.correct_count} correct!"
+    puts self.score
+    puts "Good work! You got #{self.correct_count} correct out of a possible #{@@questions.length}!"
   end
       
 end

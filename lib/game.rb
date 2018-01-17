@@ -39,7 +39,7 @@ attr_accessor :correct_count, :dictionary, :question_count
     end
   end
   
-   def letter_to_index(input)
+   def letter_to_number(input)
     case input.downcase
     when "a"
       input = "1"
@@ -54,7 +54,7 @@ attr_accessor :correct_count, :dictionary, :question_count
   end
   
   def valid_input?(input)
-    input = self.letter_to_index(input)
+    input = self.letter_to_number(input)
     input.to_i > 0 && input.to_i < 5 || input == "exit"
   end
   
@@ -97,7 +97,7 @@ attr_accessor :correct_count, :dictionary, :question_count
       if input == "exit"
         self.exit
         return
-      elsif question.correct?(self.letter_to_index(input).to_i)
+      elsif question.correct?(self.letter_to_number(input).to_i)
         self.correct_count += 1
         puts "Correct!\n\n"
       else 

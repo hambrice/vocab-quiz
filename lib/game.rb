@@ -25,21 +25,37 @@ attr_accessor :correct_count, :dictionary
    question.options.insert(question.answer_index, question.answer)
    question.options.delete("placeholder")
    #binding.pry
-   puts "What is the definition of '#{question.word}'?"
-   question.options.each.with_index(1) do |option,index|
-     puts "#{index}. #{option.capitalize}"
-   end
+   
    #binding.pry
+  end
+  
+  def puts_question(question)
+    puts "What is the definition of '#{question.word}'?"
+    question.options.each.with_index(1) do |option,index|
+      puts "#{index}. #{option.capitalize}"
+    end
+  end
+  
+  def valid_input?(input)
+    input.to_i > 0 && input.to_i < 5
   end
   
   def play
     while !over?
       question = Question.new
       self.build_question(question)
+     input = self.puts_question(question)
+     # puts "What is the definition of '#{question.word}'?"
+   #question.options.each.with_index(1) do |option,index|
+     #puts "#{index}. #{option.capitalize}"
+  # end
       input = gets.strip
       if input == "exit"
         self.exit
         return
+      #elsif input.to_i < 1 || input.to_i > 4
+       # puts "Sorry! I didn't recognize your answer. Please pick an option that corresponds to one of the given answers."
+        #self.puts_question(question)
       elsif question.correct?(input.to_i)
         self.correct_count += 1
         puts "Correct!"

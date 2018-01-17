@@ -14,9 +14,24 @@ attr_accessor :correct_count, :dictionary
     Dictionary.count == Question.used_words.count
   end
   
+   def build_question(hash)
+     question = Question.new
+   question.select_options(hash)
+   question.options << "placeholder"
+   question.answer_index = rand (0..3)
+   question.options.insert(question.answer_index, question.answer)
+   question.options.delete("placeholder")
+   #binding.pry
+   puts "What is the definition of '#{@word}'?"
+   question.options.each.with_index(1) do |option,index|
+     puts "#{index}. #{option.capitalize}"
+   end
+   #binding.pry
+  end
+  
   def play(hash)
     while !over?
-      question = Question.new
+      self.build_question(hash)
       question.build_question(hash)
       input = gets.strip
       if input == "exit"

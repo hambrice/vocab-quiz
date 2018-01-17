@@ -1,7 +1,5 @@
 require "nokogiri"
 require "open-uri"
-require "pry"
-
 class Scraper
   attr_accessor :url
   
@@ -39,5 +37,3 @@ class Scraper
     Dictionary.new(words,title)
   end
 end
-
-#Scraper.new.dictionary_title("https://www.vocabulary.com/lists/1748998")

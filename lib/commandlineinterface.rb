@@ -1,5 +1,4 @@
 require_relative "../lib/game.rb"
-require "pry"
 
 class CLI 
   
@@ -30,7 +29,7 @@ class CLI
       input = gets.strip
     end
     dictionary = Scraper.new.build_dictionary(input)
-    puts "You've chosen #{dictionary.title}(#{dictionary.count} words). Is that correct?"
+    puts "You've chosen '#{dictionary.title}'(#{dictionary.count} words). Is that correct?"
     input = gets.strip
     unless input.downcase == "yes" || input.downcase == "y"
       puts "Okay, let's try again.\n\n"
@@ -65,10 +64,6 @@ class CLI
     puts "You can type exit at any time to quit. Type anything to begin!\n\n"
     gets
     Game.new(dictionary,amount).play
-    #game.play
-    #return
   end 
 end
-
-#CLI.new.run
 

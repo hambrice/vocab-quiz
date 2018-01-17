@@ -1,4 +1,3 @@
-require "pry"
 require_relative "../lib/question.rb"
 
 class Game
@@ -96,6 +95,7 @@ attr_accessor :correct_count, :dictionary, :question_count
      end
       if input == "exit"
         self.result
+        return
       elsif question.correct?(self.letter_to_number(input).to_i)
         self.correct_count += 1
         puts "Correct!\n\n"
@@ -109,5 +109,3 @@ attr_accessor :correct_count, :dictionary, :question_count
   end
       
 end
-
-#Game.new.play(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

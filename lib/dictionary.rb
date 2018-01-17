@@ -1,4 +1,3 @@
-require "pry"
 require_relative "../lib/scraper.rb"
 
 class Dictionary
@@ -15,5 +14,3 @@ class Dictionary
     @count = @words.keys.length
   end
 end
-
-#dictionary = Dictionary.new("https://www.vocabulary.com/lists/1748998").define("luminous")

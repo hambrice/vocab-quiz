@@ -1,4 +1,3 @@
-require "pry"
 require_relative "../lib/dictionary.rb"
 
 class Question
@@ -38,5 +37,3 @@ class Question
  end
  
 end
-
-#Question.new.build_question(Dictionary.new("https://www.vocabulary.com/lists/1748998").words)

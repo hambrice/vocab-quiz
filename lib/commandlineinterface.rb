@@ -64,10 +64,11 @@ class CLI
     sleep(1)
     puts "You can type exit at any time to quit. Type anything to begin!\n\n"
     gets
-    game = Game.new(dictionary,amount)
-    game.play
+    Game.new(dictionary,amount).play
+    #game.play
+    #return
   end 
 end
 
-CLI.new.run
+#CLI.new.run
 

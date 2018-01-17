@@ -95,8 +95,7 @@ attr_accessor :correct_count, :dictionary, :question_count
       input = gets.strip
      end
       if input == "exit"
-        self.exit
-        return
+        self.result
       elsif question.correct?(self.letter_to_number(input).to_i)
         self.correct_count += 1
         puts "Correct!\n\n"

@@ -13,7 +13,10 @@ class Scraper
       self.url = "https://www.vocabulary.com/lists/1154621"
     when "3"
       self.url = "https://www.vocabulary.com/lists/194479"
+    when "4"
+      self.url = "https://www.vocabulary.com/lists/1748998"
     end
+  end
   def build_dictionary(input)
     self.build_url(input)
     hash = {}

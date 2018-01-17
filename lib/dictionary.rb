@@ -2,6 +2,7 @@ require "pry"
 require_relative "../lib/scraper.rb"
 
 class Dictionary
+  #attr_accessor :title, :words
   attr_reader :count, :title, :words
   
   def initialize(words, title)
@@ -9,9 +10,6 @@ class Dictionary
     @title = title
   end
   
-  def define(word)
-    @words[word]
-  end
   
   def count
     @count = @words.keys.length

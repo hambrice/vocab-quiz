@@ -35,9 +35,10 @@ attr_accessor :correct_count, :dictionary
   end
   
   def puts_question(question)
+    array = ["a","b","c","d"]
     puts "What is the definition of '#{question.word}'?\n\n"
-    question.options.each.with_index(1) do |option,index|
-      puts "#{index}. #{option.capitalize}"
+    question.options.each.with_index(0) do |option,index|
+      puts "#{array[index]}. #{option.capitalize}"
     end
   end
   
@@ -71,7 +72,7 @@ attr_accessor :correct_count, :dictionary
   def play
     while !over?
     sleep(1)
-     question = self.build_question(Question.new(self.dictionary))
+     question = self.build_question(Question.new)
      self.puts_question(question)
      input = gets.strip
      while !self.valid_input?(input)

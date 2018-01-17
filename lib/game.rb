@@ -32,8 +32,6 @@ attr_accessor :correct_count, :dictionary
     question.options.each.with_index(1) do |option,index|
       puts "#{index}. #{option.capitalize}"
     end
-    input=gets.strip
-    input
   end
   
   def valid_input?(input)
@@ -43,12 +41,15 @@ attr_accessor :correct_count, :dictionary
   def play
     while !over?
      question = self.build_question(Question.new)
-     input = self.puts_question(question)
+     self.puts_question(question)
+     input = gets.strip
      while !self.valid_input?(input)
       puts "Sorry! I didn't recognize your answer."
       puts "Please pick an option that corresponds to one of the given answers."
+      puts ""
       sleep(1)
-      input = self.puts_question(question)
+      self.puts_question(question)
+      input = gets.strip
      end
       if input == "exit"
         self.exit

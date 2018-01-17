@@ -14,7 +14,6 @@ attr_accessor :correct_count, :dictionary
   
   def score
     self.correct_count.to_f / @@questions.length*100
-    binding.pry
   end
   
   def over?
@@ -48,7 +47,7 @@ attr_accessor :correct_count, :dictionary
   
   def result
     puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}."
-    sleep(.5)
+    sleep(0.5)
     puts""
     if score == 0
       puts "Errr.. Atleast you're pretty?"
@@ -57,7 +56,7 @@ attr_accessor :correct_count, :dictionary
     elsif score > 20 && score <= 40
       puts "You know what they say, don't judge a fish by it's ability to climb a tree. Or memorize vocabulary."
     elsif score > 40 && score <= 60
-      puts "Congrats! You did about as good as if you had just picked the answers randomly."
+      puts "You did about as good as if you had just picked the answers randomly. So congrats?"
     elsif score > 60 && score <= 80
       puts "Hey, looks like someone has read a few books!"
     elsif score > 80 && score < 100
@@ -92,8 +91,8 @@ attr_accessor :correct_count, :dictionary
         puts "Sorry, that's incorrect."
       end
     end
-    puts self.score
-    puts "Good work! You got #{self.correct_count} correct out of a possible #{@@questions.length}!"
+    puts self.result
+    puts
   end
       
 end

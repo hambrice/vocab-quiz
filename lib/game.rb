@@ -2,10 +2,12 @@ require "pry"
 require_relative "../lib/question.rb"
 
 class Game
-attr_accessor :correct_count
+attr_accessor :correct_count, :dictionary
 
-  def initialize
+  def initialize(input)
+    @dictionary = Scraper.new.build_dictionary(input)
     @correct_count = 0
+    
   end
   
   def over?

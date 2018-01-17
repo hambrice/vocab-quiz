@@ -5,9 +5,9 @@ class CLI
   
   def run
     puts "Welcome to your Vocabulary Quiz! This quiz is built on lists created by vocabulary.com."
-    sleep(2)
+    sleep(1)
     puts "To get started, please choose a vocabulary category to begin!"
-    sleep(2)
+    sleep(1)
     puts "1. 300 Most Difficult SAT Words"
     sleep(0.5)
     puts "2. Armed Services Vocational Aptitude Battery (ASVAB) Word Knowledge"

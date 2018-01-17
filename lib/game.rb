@@ -70,6 +70,7 @@ attr_accessor :correct_count, :dictionary
   
   def play
     while !over?
+    sleep(1)
      question = self.build_question(Question.new(self.dictionary))
      self.puts_question(question)
      input = gets.strip

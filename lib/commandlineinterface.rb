@@ -45,7 +45,9 @@ class CLI
     puts "To get started, please choose a vocabulary category to begin!\n\n"
     sleep(1)
     dictionary = self.choose_dictionary
+    sleep(0.25)
     puts "Great! You will be given a word and must select its definition from the given options by entering the number that corresponds to the correct answer.\n\n"
+    sleep(1)
     puts "You can type exit at any time to quit. Type anything to begin!\n\n\n"
     gets
     game = Game.new(dictionary)

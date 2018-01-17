@@ -43,19 +43,19 @@ class Question
   self.options
  end
  
- def build_question(hash)
-   select_options(hash)
-   self.options << "placeholder"
-   self.answer_index = rand (0..3)
-   self.options.insert(self.answer_index, @answer)
-   self.options.delete("placeholder")
+ #def build_question(hash)
+  # select_options(hash)
+  # self.options << "placeholder"
+  # self.answer_index = rand (0..3)
+  # self.options.insert(self.answer_index, @answer)
+  # self.options.delete("placeholder")
    #binding.pry
-   puts "What is the definition of '#{@word}'?"
-   self.options.each.with_index(1) do |option,index|
-     puts "#{index}. #{option.capitalize}"
-   end
+   #puts "What is the definition of '#{@word}'?"
+  # self.options.each.with_index(1) do |option,index|
+   #  puts "#{index}. #{option.capitalize}"
+  # end
    #binding.pry
-  end
+  #end
   
   
 end

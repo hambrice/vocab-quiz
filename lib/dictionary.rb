@@ -3,8 +3,9 @@ require_relative "../lib/scraper.rb"
 
 class Dictionary
   attr_reader :count
-  def initialize
-    @@words = Scraper.new.scrape_dictionary(url)
+  
+  def initialize(hash)
+    @@words = hash
   end
   
   def self.define(word)

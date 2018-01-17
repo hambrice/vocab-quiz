@@ -13,10 +13,14 @@ class Scraper
       self.url = "https://www.vocabulary.com/lists/1154621"
     when "3"
       self.url = "https://www.vocabulary.com/lists/194479"
+    when "4"
+      self.url = "https://www.vocabulary.com/lists/1748998"
     end
-  def build_dictionary(url)
+  end
+  def build_dictionary(input)
+    self.build_url(input)
     hash = {}
-    doc = Nokogiri::HTML(open(url))
+    doc = Nokogiri::HTML(open(self.url))
     page = doc.css(".entry")
     page.each do |s|
       hash[s.css(".word").text] = s.css(".definition").text

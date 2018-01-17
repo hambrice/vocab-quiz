@@ -2,22 +2,23 @@ require "pry"
 require_relative "../lib/scraper.rb"
 
 class Dictionary
-  attr_reader :count
+  attr_reader :count, :title
   
-  def initialize(hash)
-    @@words = hash
+  def initialize(hash, title)
+    @words = hash
+    @title = title
   end
   
-  def self.define(word)
-    @@words[word]
+  def define(word)
+    @words[word]
   end
   
   
   def words
-    @@words
+    @words
   end
   
-  def self.count
+  def count
     @count = @@words.keys.length
   end
 end

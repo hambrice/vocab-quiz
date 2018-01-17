@@ -20,9 +20,6 @@ attr_accessor :correct_count, :dictionary, :question_count
     self.dictionary.count == Question.used_words.length || self.question_count == Question.used_words.length
   end
   
-  def exit
-    self.result
-  end
   
    def build_question(question)
     question.select_options(self.dictionary.words)
@@ -42,7 +39,22 @@ attr_accessor :correct_count, :dictionary, :question_count
     end
   end
   
+   def letter_to_index(input)
+    case input.downcase
+    when "a"
+      input = "1"
+    when "b"
+      input = "2"
+    when "c"
+     input = "3"
+    when "d"
+      input = "4"
+    end
+    input
+  end
+  
   def valid_input?(input)
+    input = self.letter_to_index(input)
     input.to_i > 0 && input.to_i < 5 || input == "exit"
   end
   
@@ -85,7 +97,7 @@ attr_accessor :correct_count, :dictionary, :question_count
       if input == "exit"
         self.exit
         return
-      elsif question.correct?(input.to_i)
+      elsif question.correct?(self.letter_to_index(input).to_i)
         self.correct_count += 1
         puts "Correct!\n\n"
       else 

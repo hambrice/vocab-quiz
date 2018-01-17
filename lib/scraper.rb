@@ -5,12 +5,9 @@ require "pry"
 class Scraper
   attr_accessor :url
   
-  
-   
   def build_url(input)
    if input.include?("vocabulary.com/lists/")
      self.url = "https://www.vocabulary.com/lists/#{input.split("lists/")[1]}"
-     #binding.pry
    else
     case input
     when "1"
@@ -28,8 +25,7 @@ class Scraper
   def dictionary_title
     doc = Nokogiri::HTML(open(self.url))
     title = doc.css("h1").text
-    #binding.pry
-  end
+    end
     
   def build_dictionary(input)
     self.build_url(input)

@@ -8,24 +8,9 @@ class Question
   def self.used_words
     @@used_words
   end
-  
-  def letter_to_index(input)
-    case input.downcase
-    when "a"
-      1
-    when "b"
-      2
-    when "c"
-      3
-    when "d"
-      4
-    end
-  end
     
   def correct?(input)
-    if input.to_i == 0
-      self.correct?(self.letter_to_index(input))
-    end
+    self.correct?(self.letter_to_index(input)) if input.to_i == 0
     #make this blank if blank later!
     input == self.answer_index + 1
   end

@@ -4,9 +4,11 @@ require_relative "../lib/dictionary.rb"
 class Question
  @@used_words = []
  attr_accessor :options, :answer_index
- attr_reader :word, :answer
+ attr_reader :word, :answer, :dictionary
  
- 
+  def initialize(dictionary)
+    @dictionary = dictionary
+  end
   def self.used_words
     @@used_words
   end
@@ -24,7 +26,7 @@ class Question
      self.select_word(hash)
    end
    @@used_words << array[number]
-   @answer = Dictionary.define(array[number])
+   @answer = self.dictionary.define(array[number])
    @word = array[number]
  end
 

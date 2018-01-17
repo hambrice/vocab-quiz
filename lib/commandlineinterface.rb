@@ -31,6 +31,9 @@ class CLI
       puts "Or find your own list on vocabulary.com and enter the URL."
       input = gets.strip
     end
+    dictionary = Scraper.new.build_dictionary(input)
+    puts "You've chosen #{dictionary.title}(#{dictionary.count} words). Is that correct?"
+    input = gets.strip
     puts "Great! You will be given a word and must select its definition from the given options by entering the number that corresponds to the correct answer."
     puts "You can type exit at any time to quit. Type anything to begin!"
     gets

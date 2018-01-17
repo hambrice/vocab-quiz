@@ -24,22 +24,23 @@ class Scraper
    end
   end
   
-  def dictionary_title(url)
-    doc = Nokogiri::HTML(open(url))
+  def dictionary_title
+    doc = Nokogiri::HTML(open(self.url))
     title = doc.css("h1").text
-    binding.pry
+    #binding.pry
   end
     
   def build_dictionary(input)
     self.build_url(input)
-    hash = {}
+    words = {}
+    title = self.dictionary_title
     doc = Nokogiri::HTML(open(self.url))
     page = doc.css(".entry")
     page.each do |s|
-      hash[s.css(".word").text] = s.css(".definition").text
+      words[s.css(".word").text] = s.css(".definition").text
     end
-    Dictionary.new(hash,title)
+    Dictionary.new(words,title)
   end
 end
 
-Scraper.new.dictionary_title("https://www.vocabulary.com/lists/1748998")
+#Scraper.new.dictionary_title("https://www.vocabulary.com/lists/1748998")

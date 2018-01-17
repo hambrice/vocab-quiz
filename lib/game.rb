@@ -5,8 +5,8 @@ class Game
 attr_accessor :correct_count, :dictionary
 @@questions = []
 
-  def initialize(input)
-    @dictionary = Scraper.new.build_dictionary(input)
+  def initialize(dictionary)
+    @dictionary = dictionary
     @correct_count = 0
     
     
@@ -17,7 +17,7 @@ attr_accessor :correct_count, :dictionary
   end
   
   def over?
-    Dictionary.count == Question.used_words.count
+    self.dictionary.count == Question.used_words.count
   end
   
   def exit
@@ -70,7 +70,7 @@ attr_accessor :correct_count, :dictionary
   
   def play
     while !over?
-     question = self.build_question(Question.new)
+     question = self.build_question(Question.new(self.dictionary))
      self.puts_question(question)
      input = gets.strip
      while !self.valid_input?(input)

@@ -5,7 +5,12 @@ require "pry"
 class Scraper
   attr_accessor :url
   
+  
+   
   def build_url(input)
+   if input.include?("vocabulary.com/lists/")
+     self.url = "https://www.vocabulary.com/lists/#{input.split("lists/")[1]}"
+     #binding.pry
     case input
     when "1"
       self.url = "https://www.vocabulary.com/lists/191545"
@@ -16,7 +21,9 @@ class Scraper
     when "4"
       self.url = "https://www.vocabulary.com/lists/1748998"
     end
+   end
   end
+  
   def build_dictionary(input)
     self.build_url(input)
     hash = {}

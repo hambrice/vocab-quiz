@@ -2,13 +2,13 @@ require "pry"
 require_relative "../lib/question.rb"
 
 class Game
-attr_accessor :correct_count, :dictionary
+attr_accessor :correct_count, :dictionary, :question_count
 @@questions = []
 
-  def initialize(dictionary)
+  def initialize(dictionary, amount)
     @dictionary = dictionary
     @correct_count = 0
-    
+    @question_count = amount
     
   end
   
@@ -17,7 +17,7 @@ attr_accessor :correct_count, :dictionary
   end
   
   def over?
-    self.dictionary.count == Question.used_words.count
+    self.dictionary.count == Question.used_words.length || self.question_count == Question.used_words.length
   end
   
   def exit

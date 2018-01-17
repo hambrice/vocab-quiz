@@ -39,7 +39,7 @@ class CLI
     dictionary
   end
   
-  def question_count
+  def question_count(dictionary)
     puts "Now, of the #{dictionary.count} words, how many would you like to try?"
     amount = gets.strip.to_i
     while amount < 1 || amount > dictionary.count
@@ -57,7 +57,7 @@ class CLI
     sleep(1)
     dictionary = self.choose_dictionary
     sleep(0.25)
-    amount = self.question_count
+    amount = self.question_count(dictionary)
     sleep(0.25)
     puts "Great! You will be given a word and must select its definition from the given options by entering the number that corresponds to the correct answer.\n\n"
     sleep(1)

@@ -1,4 +1,4 @@
-require_relative "../lib/question.rb"
+require_relative "../vocab-quiz/question.rb"
 
 class Game
 attr_accessor :correct_count, :dictionary, :question_count
@@ -61,7 +61,6 @@ attr_accessor :correct_count, :dictionary, :question_count
     puts "Thanks for playing!\n\n"
     puts "You got #{self.correct_count} correct out of a possible #{@@questions.length}.\n\n"
     sleep(0.5)
-    end
   end
   
   def play
@@ -89,7 +88,7 @@ attr_accessor :correct_count, :dictionary, :question_count
     end
     sleep(0.5)
     puts "Whew, that's it. Youre done!\n\n"
-    puts self.result
+    self.result
   end
       
 end

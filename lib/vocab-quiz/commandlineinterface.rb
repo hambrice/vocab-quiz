@@ -1,4 +1,4 @@
-require_relative "../lib/game.rb"
+require_relative "../vocab-quiz/game.rb"
 
 class CLI 
   

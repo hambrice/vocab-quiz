@@ -1,4 +1,4 @@
-require_relative "../lib/dictionary.rb"
+require_relative "../vocab-quiz/dictionary.rb"
 
 class Question
  @@used_words = []

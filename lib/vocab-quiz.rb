@@ -1,2 +1,2 @@
-require_relative "../lib/vocab-quiz/commandlineinterface.rb"
+require_relative "../config/environment.rb"
 

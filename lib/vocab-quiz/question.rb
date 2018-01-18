@@ -1,6 +1,6 @@
 require_relative "../vocab-quiz/dictionary.rb"
 
-class Question
+class VocabQuiz::Question
  @@used_words = []
  attr_accessor :options, :answer_index, :answer, :word
  

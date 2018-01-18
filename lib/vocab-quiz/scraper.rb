@@ -1,6 +1,6 @@
 require 'nokogiri'
 require 'open-uri'
-class Scraper
+class VocabQuiz::Scraper
   attr_accessor :url
   
   def build_url(input)
@@ -34,6 +34,6 @@ class Scraper
     page.each do |s|
       words[s.css(".word").text] = s.css(".definition").text
     end
-    Dictionary.new(words,title)
+    VocabQuiz::Dictionary.new(words,title)
   end
 end

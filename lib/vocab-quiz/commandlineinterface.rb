@@ -1,6 +1,6 @@
 require_relative "../vocab-quiz/game.rb"
 
-class CLI 
+class VocabQuiz::CLI 
   
   def input_valid?(input)
     input.include?("vocabulary.com/lists/") || input.to_i > 0 && input.to_i < 5
@@ -28,7 +28,7 @@ class CLI
       puts "Or find your own list on vocabulary.com and enter the URL."
       input = gets.strip
     end
-    dictionary = Scraper.new.build_dictionary(input)
+    dictionary = VocabQuiz::Scraper.new.build_dictionary(input)
     puts "You've chosen '#{dictionary.title}'(#{dictionary.count} words). Is that correct?(yes/no)"
     input = gets.strip
     unless input.downcase == "yes" || input.downcase == "y"
@@ -63,7 +63,7 @@ class CLI
     sleep(1)
     puts "You can type exit at any time to quit once the game has begun. Press any key to begin!\n\n"
     gets
-    Game.new(dictionary,amount).play
+    VocabQuiz::Game.new(dictionary,amount).play
   end 
 end
 

@@ -1,6 +1,6 @@
 require_relative "../vocab-quiz/question.rb"
 
-class Game
+class VocabQuiz::Game
 attr_accessor :correct_count, :dictionary, :question_count
 @@questions = []
 
@@ -16,7 +16,7 @@ attr_accessor :correct_count, :dictionary, :question_count
   end
   
   def over?
-    self.dictionary.count == Question.used_words.length || self.question_count == Question.used_words.length
+    self.dictionary.count == VocabQuiz::Question.used_words.length || self.question_count == VocabQuiz::Question.used_words.length
   end
   
   
@@ -66,7 +66,7 @@ attr_accessor :correct_count, :dictionary, :question_count
   def play
     while !over?
     sleep(1)
-     question = self.build_question(Question.new)
+     question = self.build_question(VocabQuiz::Question.new)
      self.puts_question(question)
      input = gets.strip
      while !self.valid_input?(input)

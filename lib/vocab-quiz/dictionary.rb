@@ -1,5 +1,5 @@
 require_relative "../vocab-quiz/scraper.rb"
-class Dictionary
+class VocabQuiz::Dictionary
   #attr_accessor :title, :words
   attr_reader :count, :title, :words
   

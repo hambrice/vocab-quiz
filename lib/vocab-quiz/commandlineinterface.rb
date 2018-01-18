@@ -13,7 +13,7 @@ class CLI
     sleep(0.5)
     puts "3. GRE High Frequency Words (334 words)\n\n"
     sleep(0.5)
-    puts "4. Lights\n\n"
+    puts "4. Let There Be Light: Lum and Luc (10 words)\n\n"
     sleep(0.5)
     puts "Select a list by entering its corresponding number.\n\n"
     sleep(0.25)

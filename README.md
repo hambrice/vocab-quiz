@@ -9,6 +9,8 @@ This Ruby Gem uses lists from vocabulary.com to build a quiz based on the words 
 ## Usage
 The the following line into terminal and follow the on-screen prompts.
 
+    $ cd vocab-quiz
+    $ bundle install
     $ ruby bin/run
   
 ## Contributing
